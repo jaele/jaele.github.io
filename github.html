@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>API Central</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/style.css">
+  <link rel="icon" type="image/x-icon" href="public/images/globe.ico">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  
+
+</head>
+
+
+<body>
+
+<!-- /* top header */ -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+   
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <a class="navbar-brand" href="/tumblr.html">Tumblr API Guide</a>
+        <a class="navbar-brand" href="/github">Github API Guide</a>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">    
+  <div class="row content">
+
+ <!-- left side box -->
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p><a href="#">Home</a></p>
+    		<p><a href="#github_intro">Intro to API</a></p>
+    		<p><a href="#github_getkey">Get API Key</a></p>
+    		<p><a href="#github_setup">Setup Javascript</a></p>
+    		<p><a href="#github_display">Display User Repository</a></p>
+      </div>
+    </div>
+
+
+ <!-- middle box -->
+  <div class="col-sm-8 text-left"> 
+    <div class="container-fluid">
+        <div class="skyscrapper">
+         <img src="public/images/skyscrapper.jpg" class="img-responsive" alt="Chania">
+        </div>
+
+         <h1>Github's API Guide</h1>  
+          <p>
+            <a class="btn btn-warning btn-sml" href="#github_intro" role="button">Continue &raquo;</a>
+          </p>
+
+     </div>
+  
+    <hr>
+    <h3>Greetings</h3>
+      
+   
+        <div class="container-fluid">
+              <div class="register">
+               <img src="public/images/github.jpg" class="img-responsive" alt="Chania">
+              </div>
+          </div>
+
+          <p>Github is a popular web-based hosting service for version control. The website was founded by Tom Preston-Werner, Chris Wanstrath, P.J. Hyett, and Scott Chacon in 2008, and is now owned by Microsoft. Github is a place where users can upload any files for hosting and sharing, but it is mainly used for software developers to upload their codes and collaborate with one another through open source contributions. Many great software were created due to communities of people making constant changes and optimizing the software. Anyone can create an github account and make their own repositories to show off their work to the world!</p>
+
+          <p>Below is a sample demonstration of how a Github API works. The user will enter any Github account name, and the website will make a GET request to fetch data from the server. Try it out below!</p>
+
+          <div class="searchContainer">
+            <p class="lead">Enter a username to fetch a users profile info and repos</p>
+            <input type="text" id="searchUser" class="form-control" placeholder="Github Username...">
+          </div>
+
+          <br>
+
+          <div id="profile"></div>
+
+       
+            <p></p>
+            <p></p>
+
+            <p>
+            Once ready, click continue to move on to the next step. 
+            </p>
+
+<p></p>
+<p></p>
+
+      <hr>
+      <div class="container-fluid">
+           <h1 id="github_intro">Intro to API</h1>  
+            <a class="btn btn-warning btn-sml" href="#" role="button">&laquo; Previous </a> 
+            <a class="btn btn-warning btn-sml" href="#github_getkey" role="button">Continue &raquo;</a>
+     </div>
+      <hr>
+
+      <h3>Let's Get Started</h3>
+      <h3>Let's Get Started</h3>
+      
+      <p> First of all, what is API? </p>
+
+      <p> API stands for application programming interface, which is a set of routines, protocols, and tools for building
+      softare and applications. More about API can be read here at this <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">link</a>.
+      <p>
+
+      <p> Github's API is a neat tool for retreiving informations about a user, such as their title, name, and repositories. There are also other useful data to see such as where their location is, what company they work for, and their websites if they have one. 
+      </p>
+
+      <p> Below are some of the methods that Gihub allows us to use. In order to use these methods, we will need to use several keys given to us by Github which will be discussed in the next section. </p>
+
+      <div class="container-fluid">
+          <div class="register">
+           <img src="public/images/repo.jpg" class="img-responsive" alt="Chania">
+          </div>
+      </div>
+
+      <p> Here are some of the methods to display user's Github information, including their avatar, location, company, and email. </p>
+
+      <div class="container-fluid">
+          <div class="register">
+           <img src="public/images/gituser.jpg" class="img-responsive" alt="Chania">
+          </div>
+      </div>
+
+
+
+
+      <p></p>
+      <p> Now we a ready to get the API key! So, let's continue on to the next section. </p>
+      <p></p>
+
+
+      <hr>
+      <div class="container-fluid">
+           <h1 id="github_getkey">Get API Key</h1>  
+           <a class="btn btn-warning btn-sml" href="#github_intro" role="button">&laquo; Previous </a> 
+            <a class="btn btn-warning btn-sml" href="#github_setup" role="button">Continue &raquo;</a>
+     </div>
+      <hr>
+
+      <h3>Create a Github Account</h3>
+      
+      <p>The first thing that we needed to do before getting the API key is to create a Github account here at this <a href="https://github.com/join?source=header-home" target="_blank">link.</a> Then, we must register an OAuth application by filling in the lines given on Github's website.
+      
+    <div class="container-fluid">
+      <div class="register">
+       <img src="public/images/gitregister.jpg" class="img-responsive" alt="Chania">
+      </div>
+    </div>
+
+      <p> 
+      Once we are done registering for an application, we can view our OAuth Client ID Key, and Client Secret Key, both of which will be required to use all of Github's API. Let's move on to the next page where we can start setting up our website to use the Github's API with node.js and express-handlebars. 
+      </p>
+
+
+      <p>Note: If you weren't able to get the keys from the website for some reason, my keys can be temporarily used which I will put down below. </p>
+
+      <pre>
+      Client ID Key: 7d3224d9004777326986
+      Client Secret Key: 2e0e7851c197102a5a9dbfe3ab6876d3042e3099
+      </pre>
+
+       <hr>
+      <div class="container-fluid">
+           <h1 id="github_setup">Setting Up JavaScript</h1> 
+            <a class="btn btn-warning btn-sml" href="#github_getkey" role="button">&laquo; Previous </a> 
+            <a class="btn btn-warning btn-sml" href="#github_display" role="button">Continue &raquo;</a> 
+     </div>
+      <hr>
+
+       <h3>Setting up Environment to Use API</h3>
+          
+       
+       <p> 
+        This step will guide the user through all the implementations to get the API started. Afterwards, there will be an explaination on what these codes will do on the following page to help the user get a better understanding. We will be starting from scratch and installing any required modules for the API to work. So, the next step is to create a directory to store all of our files in. We can create a directory call myapp which will contain all the files needed to use the API. Here are all the steps to follow.
+        </p>
+
+        <p> Make a main.js file inside a folder called javascript.
+        <p>Input the following ajax codes. </p>
+     
+     <pre> 
+    $(document).ready(function(){
+      $('#searchUser').on('keyup', function(e){
+        let username = e.target.value;
+        // make request to github
+
+        $.ajax({
+          url:'https://api.github.com/users/' + username,
+          data:{
+            client_id:'7d3224d9004777326986',
+            client_secret:'2e0e7851c197102a5a9dbfe3ab6876d3042e3099'
+          }
+        }).done(function(user){
+
+          $.ajax({
+            url:'https://api.github.com/users/' + username + '/repos',
+            data:{
+              client_id:'7d3224d9004777326986',
+              client_secret:'2e0e7851c197102a5a9dbfe3ab6876d3042e3099',
+              sort: 'created: asc',
+              per_page: 5
+            }
+          }).done(function(repos){
+            $.each(repos, function(index, repo){
+              $('#repos').append()
+    </pre>
+
+    <p> Once all of that is finished, continue on to the next section, and I'll explain things to get them working!</p>
+
+
+
+
+
+
+
+
+
+
+       <hr>
+        <div class="container-fluid">
+             <h1 id="github_display">Display User Repository</h1> 
+              <a class="btn btn-warning btn-sml" href="#github_setup" role="button">&laquo; Previous </a> 
+       </div>
+      <hr>
+
+
+
+      <h3>Retrieve Data from Github!</h3>
+      
+   
+       <p>We can finally get to see how Github's API works.</p>
+       <p>Below is a sample of what would happen if we type in "John" in the line below. </p>
+       <p>The profile of the user will be pulled up, along with their repositories and any other informations. Sometimes the user won't have those information, and a null will be seen in place of it. </p>
+
+     <div class="container-fluid">
+      <div class="register">
+       <img src="public/images/gitdemo.jpg" class="img-responsive" alt="Chania">
+      </div>
+    </div>
+
+        <p>Again, shown below is a sample illustration of how the API would be like.</p>
+
+      <div class="searchContainer">
+          <p class="lead">Enter a username to fetch a users profile info and repos</p>
+          <input type="text" id="searchUser" class="form-control" placeholder="Github Username...">
+        </div>
+
+        <br>
+
+      <div id="profile"></div>
+
+
+      <p></p>
+      <p>
+      And that is it! We have cover all the basics needed to retreive blog data informations and image. There are still a lot more to be covered still, but that is for some times in the future. Have fun searching for Github user's repositories!
+      </p>
+      <p></p>
+
+
+    </div>
+
+    <!-- /* right side box */ -->
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <a href="/about"><p>About</p></a>
+      </div>
+      <div class="well">
+        <a href="/contact"><p>Contact</p></a>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>&copy; James Le 2018 </p>
+</footer>
+
+<script src="public/main.js"></script>
+</body>
+</html>
