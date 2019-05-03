@@ -13,6 +13,86 @@
   
 </head>
 <body>
+  
+ <script>
+   $(document).ready(function() {
+  
+  //Store given consumer key
+  var client =  'f92smiWRexvzEL6eIYgC3SMJ4szSCZEvpqiwP9LD5OISyE8eH8';
+  
+    
+  // click function 
+   $('#search_button').click(function(){
+     
+     // get value from textbox
+     var urlTumblrRaw = $('#search_bar').val();
+     // getting rid of http protocol sintax 
+     var urlTumblr = urlTumblrRaw.replace(/.*?:\/\//g, "");
+
+  
+     //run ajax call and pass parameter from search
+     $.ajax({
+    
+       url: 'https://api.tumblr.com/v2/blog/' + urlTumblr.replace('/', '') + '/posts',
+       method: 'get',
+       // make sure to use jsonp. It is a requirement to consume the Tumblr api
+       dataType: "jsonp",
+       data: ({ api_key: client}),
+       // upon sucess exceute the following code
+       success: function(data){
+           console.log(data);
+           
+           // check if  input is returning object with data
+           if((data.response).length === 0){
+             $('#tumblr_search').html('no data returned, make sure you entered a Tumblr url');
+             } 
+
+             else {
+          //check if seach has been already excuted and clean the div for the next search
+          if($('#tumblr_search').not(':empty')){
+            $('#tumblr_search').empty();
+          }
+          
+          // variables to access the object returned
+          var objectBlog = data.response.blog;
+
+          var objectPosts = data.response.posts;
+
+          // getting title of the tumblr
+          //$('#title_tumblr').html(objectBlog.title + ' recent blog posts');
+          
+          $('#tumblr_title').html(objectBlog.title);
+          $('#tumblr_name').html(objectBlog.name);
+          $('#tumblr_posts').html(objectBlog.posts);
+          $('#tumblr_desc').html(objectBlog.description);
+          
+          
+          // each loop to go through all the post
+          $.each(objectPosts, function(key, value){
+            //just retrieving post that have photos
+            if(value.type === "photo"){
+              // inner each loop to go through all the photos for each post
+              $.each(value.photos, function(k, v){
+                  //append image
+                  $('#tumblr_search').append(
+                    '<img src="' + v.original_size.url + '" width="250" height="259" />'
+                  );
+                });// end inner each
+              
+              // caption for each post
+              $('#tumblr_search').append(value.caption + '<hr />');
+            }
+            });// end each 
+            
+
+         } // end success function
+       }
+       }); // end ajax call
+     
+     }); // end click function
+  
+}); // end of document.ready
+  </script>
 
 <!-- /* top header */ -->
 <nav class="navbar navbar-inverse">
@@ -513,6 +593,5 @@ app.listen(app.get('port'), function(){
 <footer class="container-fluid text-center">
   <p>&copy; James Le 2018 </p>
 </footer>
-<script src="public/main.js"></script>
 </body>
 </html>
