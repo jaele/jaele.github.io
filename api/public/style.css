@@ -29,7 +29,7 @@
 }
 
 /* Set black background color, white text and some padding */
-footer {
+.footer {
   background-color: #555;
   color: white;
   position: fixed;
